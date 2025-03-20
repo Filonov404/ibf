@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBF</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <style>
+        .chart-container {
+    background-color: #121212;
+    border-radius: 10px;
+    padding: 20px;
+    color: #fff;
+    font-family: sans-serif;
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 16px;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.join {
+    color: #fff;
+}
+
+.value {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.sub-value {
+    font-size: 14px;
+    color: #999;
+}
+
+.shares {
+    display: flex;
+    margin-top: 10px;
+}
+
+.shares-button {
+    background-color: #222;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.shares-button.active {
+    background-color: #fff;
+    color: #000;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.percentage {
+    color: #00ff00;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.time-buttons {
+    display: flex;
+}
+
+.time-button {
+    background-color: #222;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    </style>
+    <div class="chart-container">
+        <div class="header">
+            <div class="title">IBF Affiliate <span class="join">Join</span></div>
+            <div class="value">105,567.17 STT</div>
+            <div class="sub-value">~$134.60</div>
+            <div class="shares">
+                <button class="shares-button active">Shares 1</button>
+                <button class="shares-button">Shares 2</button>
+            </div>
+        </div>
+        <canvas id="myChart"></canvas>
+        <div class="footer">
+            <div class="percentage">+3.5%</div>
+            <div class="time-buttons">
+                <button class="time-button">All</button>
+                <button class="time-button">1Y</button>
+                <button class="time-button">6M</button>
+                <button class="time-button">3M</button>
+                <button class="time-button">1M</button>
+            </div>
+        </div>
+    </div>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    
+    const data = {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        datasets: [{
+            label: 'Shares',
+            data: [10, 15, 13, 20, 18, 25, 30],
+            borderColor: '#00ff00',
+            borderWidth: 2,
+            fill: false,
+            tension: 0 
+        }]
+    };
+
+    // Настройки графика
+    const config = {
+        type: 'line',
+        data: data,
+        options: {
+            scales: {
+                x: {
+                    display: false 
+                },
+                y: {
+                    display: false 
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false 
+                }
+            },
+            elements: {
+                point: {
+                    radius: 0 
+                }
+            },
+            backgroundColor: '#121212' 
+        }
+    };
+
+    const myChart = new Chart(ctx, config);
+});
+
+
+    </script>
+</body>
+</html>
