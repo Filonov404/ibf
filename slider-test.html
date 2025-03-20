@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiper Pie Chart Slider</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            margin: 0;
+        }
+
+        .swiper-container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .swiper-slide {
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .pie-chart-container {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto 20px;
+        }
+
+        .pie-chart-container svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .pie-segment {
+            cursor: pointer;
+            transition: fill 0.3s ease;
+            stroke: #000;
+            stroke-width: 3;
+        }
+
+        .pie-segment:hover {
+            fill: rgba(255, 255, 255, 0.3);
+        }
+
+        .swiper-slide h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .swiper-slide p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #ddd;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: white;
+        }
+
+        .swiper-pagination-bullet {
+            background-color: #666;
+            opacity: 0.8;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="swiper-container">
+        <div class="pie-chart-container">
+            <svg viewBox="0 0 100 100">
+                <!-- Pie chart segments will be dynamically added here -->
+            </svg>
+        </div>
+
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <h2>Валютный рынок - 30%</h2>
+                <p>Фонд активно использует арбитражные и макроэкономические стратегии на рынке форекс, включая работу с
+                    основными валютами и кросс-курсами.</p>
+            </div>
+            <div class="swiper-slide">
+                <h2>Фондовый рынок - 20%</h2>
+                <p>Торговля акциями крупнейших компаний с использованием современных стратегий и технического анализа.
+                </p>
+            </div>
+            <div class="swiper-slide">
+                <h2>Криптовалюты - 15%</h2>
+                <p>Активная торговля на криптовалютных биржах с применением различных торговых стратегий.</p>
+            </div>
+            <div class="swiper-slide">
+                <h2>Сырьевые товары - 10%</h2>
+                <p>Торговля сырьевыми фьючерсами и спотовыми контрактами на основные виды сырья.</p>
+            </div>
+            <div class="swiper-slide">
+                <h2>Облигации - 25%</h2>
+                <p>Инвестиции в государственные и корпоративные облигации для обеспечения стабильного дохода.</p>
+            </div>
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const slidesData = [
+            { percentage: 30, color: '#0066FF' },
+            { percentage: 20, color: '#00FF66' },
+            { percentage: 15, color: '#FF3300' },
+            { percentage: 10, color: '#FF9900' },
+            { percentage: 25, color: '#9933FF' }
+        ];
+
+        const pieChartContainer = document.querySelector('.pie-chart-container svg');
+        let swiper;
+
+        function generatePieChart(data) {
+            let startAngle = 0;
+            data.forEach((segment, index) => {
+                const angle = 360 * segment.percentage / 100;
+                const endAngle = startAngle + angle;
+
+                const x1 = 50 + 45 * Math.cos(Math.PI * startAngle / 180);
+                const y1 = 50 + 45 * Math.sin(Math.PI * startAngle / 180);
+                const x2 = 50 + 45 * Math.cos(Math.PI * endAngle / 180);
+                const y2 = 50 + 45 * Math.sin(Math.PI * endAngle / 180);
+
+                const largeArcFlag = angle > 180 ? 1 : 0;
+
+                const d = `M ${x1} ${y1} A 45 45 0 ${largeArcFlag} 1 ${x2} ${y2} L 50 50 Z`;
+
+                const segmentElement = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+                segmentElement.setAttribute('d', d);
+                segmentElement.setAttribute('fill', segment.color);
+                segmentElement.setAttribute('class', 'pie-segment');
+                segmentElement.dataset.index = index;
+                segmentElement.addEventListener('click', () => {
+                    swiper.slideTo(index);
+                });
+
+                pieChartContainer.appendChild(segmentElement);
+                startAngle = endAngle;
+            });
+
+            const centralCircle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
+            centralCircle.setAttribute('cx', '50');
+            centralCircle.setAttribute('cy', '50');
+            centralCircle.setAttribute('r', '20');
+            centralCircle.setAttribute('fill', '#121212');
+            pieChartContainer.appendChild(centralCircle);
+        }
+
+        function initializeSwiper() {
+            swiper = new Swiper('.swiper-container', {
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                effect: 'fade', 
+                fadeEffect: {
+                    crossFade: true 
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                loop: true,
+            });
+        }
+
+        generatePieChart(slidesData);
+        initializeSwiper();
+    </script>
+</body>
+
+</html>
