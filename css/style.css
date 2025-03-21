@@ -4,17 +4,17 @@
 
 
 :root {
-    --black: #121212;               
-    --white: #E9EAE8;               
-    --gray-100: #3D3D3D;            
-    --gray-200: #666666;            
-    --primary-100: #FF4C01;         
-    --primary-200: #FF6829;         
-    --additional-100: #2E26F5;      
-    --additional-200: #00FF7B;      
-    --negative-100: #F71919;        
-    --negative-200: #FF3D3D;        
-    --yellow-300: #FEF665;          
+    --black: #121212;
+    --white: #E9EAE8;
+    --gray-100: #3D3D3D;
+    --gray-200: #666666;
+    --primary-100: #FF4C01;
+    --primary-200: #FF6829;
+    --additional-100: #2E26F5;
+    --additional-200: #00FF7B;
+    --negative-100: #F71919;
+    --negative-200: #FF3D3D;
+    --yellow-300: #FEF665;
 }
 
 /* fonts */
@@ -31,7 +31,7 @@ body {
     font-size: clamp(16px, 3vw, 20px);
     line-height: 130%;
     color: var(--white);
-    background: var(--black); 
+    background: var(--black);
 }
 
 .no-scroll {
@@ -54,6 +54,14 @@ a:hover {
     padding: 0 20px;
 }
 
+.mid-container {
+    max-width: 1375px;
+}
+
+.min-container {
+    max-width: 910px;
+}
+
 .d-flex {
     display: flex;
 }
@@ -64,6 +72,23 @@ a:hover {
 
 .aic {
     align-items: center;
+}
+
+.pb-32 {
+    padding-bottom: clamp(20px, 3vw, 32px);
+}
+
+.pt-16 {
+    padding-top: clamp(8px, 3vw, 16px);
+}
+
+.grid-3  {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(445px, 1fr));
+}
+
+.gap-20 {
+    gap: 20px;
 }
 
 .logo {
@@ -147,6 +172,7 @@ a:hover {
     .burger {
         display: flex;
     }
+
     .menu {
         display: none;
     }
@@ -161,7 +187,7 @@ a:hover {
         top: 105px;
         z-index: 100;
     }
-    
+
     .menu.open ul {
         flex-direction: column;
     }
@@ -180,9 +206,31 @@ a:hover {
         position: fixed;
         width: 100%;
     }
+
     .menu ul li {
         margin: 0;
     }
-   
+
+}
+
+.big-title {
+    font-family: var(--font-bold);
+    font-size: 112px;
+    line-height: 110%;
+    letter-spacing: -4%;
+    text-transform: uppercase;
+}
+
+.first-word {
+    font-family: var(--font-boldItalic);
+}
+
+.grid-3.grid-text-items {
+    column-gap: 20px;
+    row-gap: 30px;
+}
+
+.grid-text-item {
+    border-top: 2px solid var(--gray-200);
 }
 
