@@ -82,7 +82,7 @@ a:hover {
     padding-top: clamp(8px, 3vw, 16px);
 }
 
-.grid-3  {
+.grid-3 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(445px, 1fr));
 }
@@ -234,3 +234,64 @@ a:hover {
     border-top: 2px solid var(--gray-200);
 }
 
+.top-slider-init-wrap {
+    overflow: hidden;
+    position: relative;
+}
+
+.btn-wrap {
+    position: relative;
+    max-width: 248px;
+    padding-top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-pagination,
+.btn-slide-next,
+.btn-slide-prev {
+    position: relative !important;
+}
+
+.btn-slide-next,
+.btn-slide-prev {
+    min-width: 80px!important;
+    height: 80px!important;
+    border: 2px solid var(--gray-100);
+    padding: 30px;
+    border-radius: 50%;
+}
+
+.btn-slide-next::after,
+.btn-slide-prev::after {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+}
+
+.btn-slide-next::after {
+    background: center / contain no-repeat url(../images/icons/Arrow-Right.svg);
+}
+
+.btn-slide-prev::after {
+    transform: rotate(180deg);
+    background: center / contain no-repeat url(../images/icons/Arrow-Right.svg);
+}
+
+.btn-pagination {
+    margin-top: -12px;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-size: 0 !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--white);
+}
+
+.swiper-pagination-bullet {
+    background: var(--gray-100);
+}

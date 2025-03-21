@@ -15,6 +15,7 @@
 //     checkWidth();
 // });
 document.addEventListener('DOMContentLoaded', () => {
+    //бургер
 
     const burger = document.querySelector('.burger');
     const burgerSpan = document.querySelector('.burger span');
@@ -27,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
         burgerSpan.classList.toggle('open-burger');
     });
 
-
     document.addEventListener('click', (event) => {
         if (!menu.contains(event.target) && !burger.contains(event.target)) {
             menu.classList.remove('open');
@@ -39,8 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-
-
+    //обертка для изменения шрифта первого слова в слайдере
 
     const paragraph = document.getElementById('big-first-word');
     const text = paragraph.textContent;
@@ -52,7 +51,18 @@ document.addEventListener('DOMContentLoaded', () => {
         paragraph.innerHTML = `<span class="first-word">${firstWord}</span> ${restOfText ? ' ' + restOfText : ''}`;
     }
 
-
-    top-slider-init-wrap
+    //инициализация слайдера 
+    
+    new Swiper(".top-slider-init-wrap", {
+        pagination: {
+          el: ".swiper-pagination",
+        },
+    
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+      
 
 });
