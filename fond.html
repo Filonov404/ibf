@@ -269,3 +269,40 @@
 </body>
 
 </html>
+
+<!-- <div id="map"></div>
+<script type="text/javascript">
+    ymaps.ready(init);
+
+    function init() {
+        // Задаем адрес
+        var address = "<?php the_field('napishite_adres_gde_nahoditsya_kompaniya', 'options')?>";
+
+        // Геокодируем адрес
+        ymaps.geocode(address, {
+            results: 1
+        }).then(function (res) {
+            // Получаем координаты
+            var coordinates = res.geoObjects.get(0).geometry.getCoordinates();
+
+            // Создаем карту
+            var myMap = new ymaps.Map("map", {
+                center: coordinates,
+                zoom: 16
+            });
+
+            // Создаем метку с полученными координатами
+            var myPlacemark = new ymaps.Placemark(coordinates, {
+                iconContent: '',
+                balloonContent: 'Системы кондиционирования и вентиляции<br><?php the_field('napishite_adres_gde_nahoditsya_kompaniya', 'options')?>',
+                hintContent: 'Системы кондиционирования и вентиляции'
+            }, {
+                preset: 'twirl#violetIcon'
+            });
+
+            // Добавляем метку на карту
+            myMap.geoObjects.add(myPlacemark);
+        });
+    }
+
+</script> -->
