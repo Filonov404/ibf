@@ -141,6 +141,10 @@ a:hover {
     align-items: center;
 }
 
+.ais {
+    align-items: start;
+}
+
 .jce {
     justify-content: end;
 }
@@ -600,6 +604,10 @@ a:hover {
     gap: 32px 20px;
 }
 
+.gap-12-8 {
+    gap: clamp(8px, 3vw, 12px);
+}
+
 .subtitle-txt ol {
     margin-left: 23px;
 }
@@ -666,6 +674,10 @@ a:hover {
 
 .w30 {
     width: 30%;
+}
+
+.mw-1220 {
+    max-width: 1220px;
 }
 
 @media (max-width: 1000px) {
@@ -1058,5 +1070,19 @@ h3 {
         width: 100px;
         height: 112px;
         object-fit: contain;
+    }
+}
+
+.mw445 {
+    max-width: 445px;
+}
+
+
+@media (max-width: 860px) {
+    .img-flag {
+        max-width: 50%;
+    }
+    .img-flag.asfe {
+        align-self: flex-end;
     }
 }
