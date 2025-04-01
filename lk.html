@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="header-wrapper d-flex jcsb aic">
+                <div class="header-l">
+                    <a href class="logo"></a>
+                </div>
+                <div class="header-r d-flex jcsb aic">
+                    <nav class="menu">
+                        <ul class="d-flex">
+                            <li><a href="#">Фонд IBF</a></li>
+                            <li><a href="#">Управление активами</a></li>
+                            <li><a href="#">Акции IBF</a></li>
+                            <li><a href="#">СМИ</a></li>
+                            <li><a href="#">Контакты</a></li>
+                        </ul>
+                    </nav>
+                    <a href="#" class="login-button">
+                        Войти
+                    </a>
+                    <div class="burger">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="header-lk">
+                <div class="d-flex jcsb aic gap-32">
+                    <img class="persone-img" src="images/imgs/persone-img.png" class="persone-img" alt="">
+                    <div class="d-flex jcsb flex-1">
+                        <div>
+                            <div class="d-flex gap-12">
+                                <span class="name-persone subtitle-h3">Peter Wolf</span>
+                                <a class="tg" href="#">
+                                    <img src="images/icons/Telegram.svg" alt="">
+                                </a>
+                            </div>
+                            <div class="d-flex gap-12 pt-16">
+                                <a class="lk-btn" href="#"><img src="images/icons/Check.svg" alt=""><span>KYC</span></a>
+                                <a class="lk-btn" href="#"><span>AML</span></a>
+                            </div>
+                        </div>
+
+                        <a class="log-out" href="#">
+                            <img src="images/icons/log-out.svg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="body-lk d-flex jcsb">
+                <div class="min-container">
+                    <div class="d-flex gap-12 bold-text color-200">
+                        <span>IBF</span>
+                        <span>*98hs8</span>
+                    </div>
+
+                    <span class="big-title summ1 pt-8">
+                        $ 24,509.86
+                    </span>
+                    <div class="d-flex gap-12 pt-24">
+                        <div class="border-btn btn-primary flex-1">
+                            <span>
+                                Deposit
+                            </span>
+                        </div>
+                        <div class="border-btn flex-1">
+                            <span>
+                                Withdraw
+                            </span>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-12 pt-24">
+                        <p class="color-200">Active untill 14 January 2026</p>
+                        <span class="primary-200">Extend</span>
+                    </div>
+                    <div class="border-line"></div>
+                    <div class="d-flex gap-12 pt-24">
+                        <p class="bold-text color-200">IBF Affiliate</p>
+                        <span class="primary-200">Join</span>
+                    </div>
+
+                    <p class="big-title">105,567.17 STT</p>
+                    <h3 class="subtitle-h3 color-200 pb-60-32">~$ 134.60</h3>
+                    <div class="d-flex jcsb">
+                        <div class="tabs">
+                            <button class="tab bold-text active" data-tab="1">Shares 1</button>
+                            <button class="tab bold-text" data-tab="2">Shares 2</button>
+                        </div>
+                        <div class="timeframes">
+                            <button class="timeframe active" data-timeframe="ALL">ALL</button>
+                            <button class="timeframe" data-timeframe="1Y">1Y</button>
+                            <button class="timeframe" data-timeframe="6M">6M</button>
+                            <button class="timeframe" data-timeframe="3M">3M</button>
+                            <button class="timeframe" data-timeframe="1M">1M</button>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="percentage">+3.5%</div>
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+                <div class="min-container775">
+                    <div class="">
+                        <div class="portfolio d-flex jcsb pb-20-16" data-total="74765.86" data-shares1="64509.80"
+                            data-shares2="10506.56">
+                            <div class="portfolio-total">
+                                <div class="bold-text color-200">
+                                    <span>All</span>
+                                </div>
+                                <h2 class="h2-subtitle-80 bold-text">$<span id="total-amount">0</span></h2>
+                            </div>
+                            <div class="portfolio-chart">
+                                <canvas id="portfolioChart"></canvas>
+                            </div>
+                        </div>
+                        <p class="bold-text color-200">Investment portfolio</p>
+                        <div class="portfolio-details">
+                            <div class="portfolio-item d-flex">
+                                <div class="indicator green"></div>
+                                <div class="flex-1">
+                                    <p class="bold-text color-200">Shares 1</p>
+                                    <div class="d-flex jcsb">
+                                        <p class="subtitle-h3">$<span id="shares1-amount">0</span></p>
+                                        <div class="action">+</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="portfolio-item d-flex">
+                                <div class="indicator gray"></div>
+                                <div class="flex-1">
+                                    <p class="bold-text color-200">Shares 2</p>
+                                    <div class="d-flex jcsb">
+                                        <p class="subtitle-h3">$<span id="shares2-amount">0</span></p>
+                                        <div class="action">+</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Данные для графика (пример)
+        const dataShares1 = {
+            'ALL': [10, 20, 15, 30, 25, 40, 35, 50, 45, 60],
+            '1Y': [30, 35, 40, 45, 50, 55, 60],
+            '6M': [40, 45, 50, 55, 60],
+            '3M': [50, 55, 60],
+            '1M': [55, 58, 60]
+        };
+
+        const dataShares2 = {
+            'ALL': [15, 25, 20, 35, 30, 45, 40, 55, 50, 65],
+            '1Y': [35, 40, 45, 50, 55, 60, 65],
+            '6M': [45, 50, 55, 60, 65],
+            '3M': [55, 60, 65],
+            '1M': [60, 63, 65]
+        };
+
+        let currentData = dataShares1;
+        let currentTimeframe = 'ALL';
+        let myChart;
+
+        // Проверяем, загрузился ли Chart.js
+        if (typeof Chart === 'undefined') {
+            console.error('Chart.js не загрузился. Проверьте подключение к интернету или URL библиотеки.');
+            alert('Chart.js не загрузился. Проверьте подключение к интернету.');
+        } else {
+            console.log('Chart.js успешно загрузился.');
+        }
+
+        // Инициализация графика
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('myChart');
+            if (!ctx) {
+                console.error('Элемент canvas с id "myChart" не найден.');
+                alert('Элемент canvas не найден.');
+                return;
+            }
+
+            console.log('Инициализация графика...');
+            try {
+                myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: Array.from({ length: currentData[currentTimeframe].length }, (_, i) => i + 1),
+                        datasets: [{
+                            label: '',
+                            data: currentData[currentTimeframe],
+                            borderColor: '#00FF7B',
+                            borderWidth: 8,
+                            fill: false,
+                            tension: 0.1,
+                            pointRadius: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                display: false
+                            },
+                            y: {
+                                display: false
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+                console.log('График успешно инициализирован.');
+            } catch (error) {
+                console.error('Ошибка при инициализации графика:', error);
+                alert('Ошибка при инициализации графика. Проверьте консоль для деталей.');
+            }
+
+            // Привязываем обработчики событий к кнопкам вкладок
+            const tabButtons = document.querySelectorAll('.tab');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tab = parseInt(button.getAttribute('data-tab'));
+                    switchTab(tab);
+                });
+            });
+
+            // Привязываем обработчики событий к кнопкам временных диапазонов
+            const timeframeButtons = document.querySelectorAll('.timeframe');
+            timeframeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const timeframe = button.getAttribute('data-timeframe');
+                    // Убираем класс active у всех таймфреймов
+                    timeframeButtons.forEach(btn => btn.classList.remove('active'));
+                    // Добавляем класс active к нажатой кнопке
+                    button.classList.add('active');
+                    updateChart(timeframe);
+                });
+            });
+        });
+
+        // Функция переключения вкладок
+        function switchTab(tab) {
+            console.log('Переключение на вкладку:', tab);
+            document.querySelectorAll('.tab').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.tab[data-tab="${tab}"]`).classList.add('active');
+            currentData = tab === 1 ? dataShares1 : dataShares2;
+            updateChart(currentTimeframe);
+        }
+
+        // Функция обновления графика
+        function updateChart(timeframe) {
+            console.log('Обновление графика с временным диапазоном:', timeframe);
+            currentTimeframe = timeframe;
+            if (myChart) {
+                try {
+                    myChart.data.labels = Array.from({ length: currentData[timeframe].length }, (_, i) => i + 1);
+                    myChart.data.datasets[0].data = currentData[timeframe];
+                    myChart.update();
+                    console.log('График обновлён.');
+                } catch (error) {
+                    console.error('Ошибка при обновлении графика:', error);
+                    alert('Ошибка при обновлении графика. Проверьте консоль.');
+                }
+            } else {
+                console.error('График не инициализирован.');
+                alert('График не инициализирован.');
+            }
+        }
+    </script>
+
+    <script>
+        // Проверяем, загрузился ли Chart.js
+        if (typeof Chart === 'undefined') {
+            console.error('Chart.js не загрузился. Проверьте подключение к интернету или URL библиотеки.');
+            alert('Chart.js не загрузился. Проверьте подключение к интернету.');
+        } else {
+            console.log('Chart.js успешно загрузился.');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Получаем данные из HTML
+            const portfolio = document.querySelector('.portfolio');
+            const totalAmount = parseFloat(portfolio.getAttribute('data-total'));
+            const shares1Amount = parseFloat(portfolio.getAttribute('data-shares1'));
+            const shares2Amount = parseFloat(portfolio.getAttribute('data-shares2'));
+
+            // Проверяем, что данные корректны
+            if (isNaN(totalAmount) || isNaN(shares1Amount) || isNaN(shares2Amount)) {
+                console.error('Некорректные данные в атрибутах data-*. Проверьте значения.');
+                alert('Ошибка: некорректные данные в HTML.');
+                return;
+            }
+
+            // Обновляем суммы на странице
+            document.getElementById('total-amount').textContent = totalAmount.toLocaleString('en-US', { minimumFractionDigits: 2 });
+            document.getElementById('shares1-amount').textContent = shares1Amount.toLocaleString('en-US', { minimumFractionDigits: 2 });
+            document.getElementById('shares2-amount').textContent = shares2Amount.toLocaleString('en-US', { minimumFractionDigits: 2 });
+
+            // Вычисляем процентное соотношение
+            const total = shares1Amount + shares2Amount;
+            const shares1Percentage = (shares1Amount / total) * 100;
+            const shares2Percentage = (shares2Amount / total) * 100;
+
+            // Инициализация круговой диаграммы
+            const ctx = document.getElementById('portfolioChart');
+            if (!ctx) {
+                console.error('Элемент canvas с id "portfolioChart" не найден.');
+                alert('Элемент canvas не найден.');
+                return;
+            }
+
+            try {
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        datasets: [{
+                            data: [shares1Percentage, shares2Percentage],
+                            backgroundColor: ['#00ff00', '#333'],
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        cutout: '70%',
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                enabled: false
+                            }
+                        }
+                    }
+                });
+                console.log('Круговая диаграмма успешно инициализирована.');
+            } catch (error) {
+                console.error('Ошибка при инициализации круговой диаграммы:', error);
+                alert('Ошибка при инициализации диаграммы. Проверьте консоль.');
+            }
+        });
+    </script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

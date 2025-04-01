@@ -28,11 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function makeFirstWordBig(selector) {
     const paragraphs = document.querySelectorAll(selector);
-    
+
     paragraphs.forEach(paragraph => {
       const text = paragraph.textContent;
       const words = text.trim().split(' ');
-      
+
       if (words.length > 0) {
         const firstWord = words[0];
         const restOfText = words.slice(1).join(' ');
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-  
+
   // Использование (можно вызывать для разных наборов элементов)
   makeFirstWordBig('#big-first-word');
 
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       titleText = slide.querySelector('.num-percent').textContent;
     } catch (e) {
-      
+
     }
     const percentageMatch = titleText.match(/(\d+)%/);
     return percentageMatch ? parseInt(percentageMatch[1], 10) : 0;
@@ -187,6 +187,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeSwiper();
   });
 
+
+  
 });
 
 
